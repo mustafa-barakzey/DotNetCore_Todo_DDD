@@ -1,0 +1,1 @@
+﻿global using brk.Framework.Base.Domain;
