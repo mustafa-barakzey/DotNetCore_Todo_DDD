@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\01_Framework\brk.Framework.Base\brk.Framework.Base.csproj" />
+    <ProjectReference Include="..\..\01_Framework\brk.Framework.Localization\brk.Framework.Localization.csproj" />
+    <ProjectReference Include="..\..\01_Framework\brk.Framwork.Tools\brk.Framework.Tools.csproj" />
+    <ProjectReference Include="..\brk.Core.Domain\brk.Core.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
