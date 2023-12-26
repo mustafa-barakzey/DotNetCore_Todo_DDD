@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\01_Framework\brk.Framework.Base\brk.Framework.Base.csproj" />
     <ProjectReference Include="..\..\02_Core\brk.Core.Application\brk.Core.Application.csproj" />
     <ProjectReference Include="..\..\03_Infra\brk.Data.SQL\brk.Data.SQL.csproj" />
   </ItemGroup>
