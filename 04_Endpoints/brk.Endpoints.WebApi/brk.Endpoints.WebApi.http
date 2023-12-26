@@ -1,0 +1,6 @@
+@brk.Endpoints.WebApi_HostAddress = http://localhost:5086
+
+GET {{brk.Endpoints.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
