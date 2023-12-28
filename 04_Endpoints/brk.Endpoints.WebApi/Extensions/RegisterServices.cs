@@ -12,7 +12,7 @@ namespace brk.Endpoints.WebApi.Extensions
         {
             services.AddDbContext<TodoCommandDbContext>(option => option.UseSqlServer(configuration.GetConnectionString("SqlServer")));
 
-            string[] assemblyList = { "brk.Core.Application", "brk.Data.SQL" };
+            string[] assemblyList = { "brk.Core.Application", "brk.Data.SQL", "brk.Framework.Base" };
             services.AddFrameworkBaseService(assemblyList);
             services.AddScoped<IUserRepository, UserRepository>();
         }

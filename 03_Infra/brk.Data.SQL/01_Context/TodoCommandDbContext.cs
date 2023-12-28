@@ -1,10 +1,11 @@
 ﻿using brk.Core.Domain.User.Entities;
+using brk.Framework.Base.Data;
 using brk.Framework.Base.ValueObjects;
 using brk.Infra.Data.Sql._04_Conversions;
 
 namespace brk.Data.SQL._01_Context
 {
-    public class TodoCommandDbContext : DbContext
+    public class TodoCommandDbContext : BaseCommandDbContext
     {
         public TodoCommandDbContext(DbContextOptions<TodoCommandDbContext> options) : base(options) { }
 
