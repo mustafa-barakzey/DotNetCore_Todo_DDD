@@ -1,4 +1,5 @@
 using brk.Endpoints.WebApi.Extensions;
+using brk.Endpoints.WebApi.Services.JWT;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddJwtAuthentication(builder.Configuration);
 builder.Services.BooStrapServices(builder.Configuration);
 
 var app = builder.Build();
