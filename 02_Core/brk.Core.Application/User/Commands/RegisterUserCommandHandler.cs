@@ -1,6 +1,7 @@
 ﻿using brk.Core.Domain.User.Commands;
 using brk.Core.Domain.User.Data;
 using brk.Core.Domain.User.Entities;
+using brk.Core.Domain.User.ValueObjects;
 using brk.Framework.Localization.User;
 
 namespace brk.Core.Application.User.Commands;
@@ -26,7 +27,8 @@ public class RegisterUserCommandHandler : BaseCommandHandler<RegisterUserCommand
         var user = UserModel.Create(
             FirstName.FromString(command.FirstName),
             LastName.FromString(command.LastName),
-            Email.FromString(command.Email));
+            Email.FromString(command.Email),
+            Password.FromString(command.Password));
 
         await _userRepository.AddAsync(user);
         await _userRepository.CommitAsync();

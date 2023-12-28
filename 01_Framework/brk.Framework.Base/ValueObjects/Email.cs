@@ -11,7 +11,7 @@ public class Email : BaseValueObject<Email>
         if (!string.IsNullOrEmpty(value) && !value.IsEmail())
             throw new InvalidValueException("ایمیل وارد شده نامعتبر میباشد");
 
-        Value = value;
+        Value = value.Trim().ToLower();
     }
 
     public override int ObjectGetHashCode() => Value.GetHashCode();

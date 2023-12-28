@@ -1,4 +1,5 @@
 ﻿using brk.Core.Domain.User.Entities;
+using brk.Core.Domain.User.ValueObjects;
 using brk.Framework.Base.Data;
 using brk.Framework.Base.ValueObjects;
 using brk.Infra.Data.Sql._04_Conversions;
@@ -23,6 +24,7 @@ namespace brk.Data.SQL._01_Context
             configurationBuilder.Properties<LastName>().HaveConversion<LastNameConversion>();
             configurationBuilder.Properties<Email>().HaveConversion<EmailConversion>();
             configurationBuilder.Properties<Mobile>().HaveConversion<MobileConversion>();
+            configurationBuilder.Properties<Password>().HaveConversion<PasswordConversion>();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
