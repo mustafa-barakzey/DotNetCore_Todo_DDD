@@ -1,7 +1,9 @@
-﻿using brk.Core.Domain.User.Entities;
+﻿using brk.Core.Domain.List.Entities;
+using brk.Core.Domain.List.ValueObjects;
+using brk.Core.Domain.User.Entities;
 using brk.Core.Domain.User.ValueObjects;
+using brk.Data.SQL.List.Conversion;
 using brk.Framework.Base.Data;
-using brk.Framework.Base.ValueObjects;
 using brk.Infra.Data.Sql._04_Conversions;
 
 namespace brk.Data.SQL._01_Context
@@ -12,7 +14,11 @@ namespace brk.Data.SQL._01_Context
 
         #region properties
 
+        /// <summary>کاربران</summary>
         public DbSet<UserModel> Users { get; set; }
+
+        /// <summary>لیست های ساخته شده توسط کاربران</summary>
+        public DbSet<ListModel> UserList { get; set; }
 
         #endregion
 
@@ -20,11 +26,8 @@ namespace brk.Data.SQL._01_Context
 
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {
-            configurationBuilder.Properties<FirstName>().HaveConversion<FirstNameConversion>();
-            configurationBuilder.Properties<LastName>().HaveConversion<LastNameConversion>();
-            configurationBuilder.Properties<Email>().HaveConversion<EmailConversion>();
-            configurationBuilder.Properties<Mobile>().HaveConversion<MobileConversion>();
             configurationBuilder.Properties<Password>().HaveConversion<PasswordConversion>();
+            base.ConfigureConventions(configurationBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,9 +1,9 @@
 ﻿using brk.Framework.Base.ValueObjects;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace brk.Infra.Data.Sql._04_Conversions
+namespace brk.Framework.Base.ValueConversion
 {
-    internal class MobileConversion : ValueConverter<Mobile, string>
+    public sealed class MobileConversion : ValueConverter<Mobile, string>
     {
         public MobileConversion() : base(m => m.Value, m => Mobile.FromString(m))
         {
