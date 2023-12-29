@@ -5,10 +5,10 @@
 
     }
 
-    public abstract class BaseRepository<TDbContext> : 
-        IUnitOfWork ,
-        IBaseRepository 
-        where TDbContext: BaseCommandDbContext
+    public abstract class BaseRepository<TDbContext> :
+        IUnitOfWork,
+        IBaseRepository
+        where TDbContext : BaseCommandDbContext
     {
         protected readonly TDbContext _dbContext;
 
@@ -17,8 +17,8 @@
             _dbContext = dbContext;
         }
 
-        public int Commit()=> _dbContext.SaveChanges();
+        public int Commit() => _dbContext.SaveChanges();
 
-        public async Task<int> CommitAsync()=>await _dbContext.SaveChangesAsync();
+        public async Task<int> CommitAsync() => await _dbContext.SaveChangesAsync();
     }
 }

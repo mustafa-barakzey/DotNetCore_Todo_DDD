@@ -1,4 +1,6 @@
 ﻿using brk.Framework.Base.Application;
+using brk.Framework.Base.Data;
+using brk.Framework.Base.Web.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyModel;
 using System.Reflection;
@@ -9,9 +11,17 @@ namespace brk.Framework.Base.Extensions
     {
         public static void AddFrameworkBaseService(this IServiceCollection services, string[] assemblyName)
         {
+            services.AddHttpContextAccessor();
             services.AddScoped<ICommandDispatcher, CommandDispatcher>();
-            services.Scan(s => s.FromAssemblies(GetAssemblies(assemblyName))
-                .AddClasses(c => c.AssignableToAny(typeof(ICommandHandler<>), typeof(ICommandHandler<,>)))
+            services.AddTransient<IUserInfoService, UserInfoService>();
+            var assemblies = GetAssemblies(assemblyName);
+
+            services.Scan(s => s.FromAssemblies(assemblies)
+                .AddClasses(c => c.AssignableToAny(typeof(ICommandHandler<>),
+                                                    typeof(ICommandHandler<,>), 
+                                                    typeof(IBaseRepository),
+                                                    typeof(IBaseRepository<,>),
+                                                    typeof(IUnitOfWork)))
                 .AsImplementedInterfaces()
                 .WithScopedLifetime());
         }

@@ -15,6 +15,7 @@ namespace brk.Framework.Base.Data
             configurationBuilder.Properties<LastName>().HaveConversion<LastNameConversion>();
             configurationBuilder.Properties<Email>().HaveConversion<EmailConversion>();
             configurationBuilder.Properties<Mobile>().HaveConversion<MobileConversion>();
+            configurationBuilder.Properties<Title>().HaveConversion<TitleConversion>();
         }
     }
 }
