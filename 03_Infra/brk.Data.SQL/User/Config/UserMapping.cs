@@ -7,7 +7,6 @@ namespace brk.Data.SQL.User.Config
     {
         public void Configure(EntityTypeBuilder<UserModel> builder)
         {
-            throw new NotImplementedException();
         }
     }
 }

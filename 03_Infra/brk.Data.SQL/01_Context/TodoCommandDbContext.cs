@@ -33,6 +33,7 @@ namespace brk.Data.SQL._01_Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
         }
 
         #endregion
