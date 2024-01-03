@@ -1,4 +1,6 @@
 ﻿using brk.Framework.Base.Domain;
+using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace brk.Framework.Base.Data
 {
@@ -8,13 +10,15 @@ namespace brk.Framework.Base.Data
         Task DeleteAsync(TEntity entity);
         Task DeleteAsync(TId id);
         Task<TEntity?> GetByIdAsync(TId id);
+        Task<TEntity?> GetGraphAsync(TId id);
+        Task<TEntity?> GetGraphAsync(Expression<Func<TEntity,bool>> expression);
     }
 
     public abstract class BaseRepository<TDbContext, TEntity, TId> :
        IUnitOfWork,
        IBaseRepository<TEntity, TId>
        where TDbContext : BaseCommandDbContext
-       where TEntity : class, IAggregateRoot
+       where TEntity : AggregateRoot, IAggregateRoot
     {
         protected readonly TDbContext _dbContext;
 
@@ -46,6 +50,28 @@ namespace brk.Framework.Base.Data
         public async Task<TEntity?> GetByIdAsync(TId id)
         {
             return await _dbContext.Set<TEntity>().FindAsync(id);
+        }
+
+        public async Task<TEntity?> GetGraphAsync(TId id)
+        {
+            var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));
+            IQueryable<TEntity> query = _dbContext.Set<TEntity>().AsQueryable();
+            foreach (var item in graphPath)
+            {
+                query = query.Include(item);
+            }
+            return await query.FirstOrDefaultAsync(c => c.Id.Equals(id));
+        }
+
+        public async Task<TEntity?> GetGraphAsync(Expression<Func<TEntity, bool>> expression)
+        {
+            var graphPath = _dbContext.GetIncludePaths(typeof(TEntity));
+            IQueryable<TEntity> query = _dbContext.Set<TEntity>().AsQueryable();
+            foreach (var item in graphPath)
+            {
+                query = query.Include(item);
+            }
+            return await query.FirstOrDefaultAsync(expression);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using brk.Core.Domain.List.ValueObjects;
+using brk.Core.Domain.TaskList.Entities;
 using brk.Framework.Base.ValueObjects;
 
 namespace brk.Core.Domain.List.Entities
@@ -19,6 +20,9 @@ namespace brk.Core.Domain.List.Entities
         /// <summary>موقعیت لیست</summary>
         public int Order { get; private set; }
 
+        public IReadOnlyCollection<TaskModel> Tasks =>_tasks;
+        private List<TaskModel> _tasks { get; set; } = new();
+
         #endregion
 
         private ListModel() { }
@@ -33,6 +37,16 @@ namespace brk.Core.Domain.List.Entities
         public void SetOrder(int order)
         {
             Order = order;
+        }
+
+        public void AddTask(TaskModel task)
+        {
+            _tasks.Add(task);
+        }
+
+        public void AddTask(Title title)
+        {
+            _tasks.Add(TaskModel.Create(title));
         }
     }
 }

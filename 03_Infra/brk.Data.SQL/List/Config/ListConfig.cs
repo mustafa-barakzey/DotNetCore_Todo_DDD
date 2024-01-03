@@ -12,6 +12,7 @@ namespace brk.Data.SQL.List.Config
                 .WithMany()
                 .HasForeignKey(m => m.OwnerId)
                 .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }
