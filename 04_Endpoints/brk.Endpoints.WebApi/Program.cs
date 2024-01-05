@@ -1,5 +1,4 @@
 using brk.Endpoints.WebApi.Extensions;
-using brk.Endpoints.WebApi.Services.JWT;
 
 var builder = WebApplication.CreateBuilder(args);
 

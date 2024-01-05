@@ -1,4 +1,5 @@
 ﻿using brk.Core.Domain.List.Commands;
+using brk.Core.Domain.List.Query;
 using Microsoft.AspNetCore.Authorization;
 
 namespace brk.Endpoints.WebApi.Controllers.v1.List
@@ -6,12 +7,28 @@ namespace brk.Endpoints.WebApi.Controllers.v1.List
     [Authorize]
     public class ListController:BaseApiController
     {
+
+        #region query
+
         /// <summary>
-        /// اضافه کردن لیست جدید
+        /// get all user list
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> Get() => await Query<GetUserList>();
+
+        #endregion
+
+        #region command
+
+        /// <summary>
+        /// add new list
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [HttpPost("AddList")]
-        public async Task<IActionResult> Add([FromBody] AddListCommand command) =>await Create(command);
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] AddListCommand command) => await Create(command);
+
+        #endregion
     }
 }
