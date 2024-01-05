@@ -29,6 +29,14 @@ namespace brk.Endpoints.WebApi.Controllers.v1.List
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] AddListCommand command) => await Create(command);
 
+        /// <summary>
+        /// add new list
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] EditListCommand command) => await Edit(command);
+
         #endregion
     }
 }

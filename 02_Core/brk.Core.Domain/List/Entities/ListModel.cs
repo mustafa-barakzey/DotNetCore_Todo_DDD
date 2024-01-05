@@ -32,6 +32,7 @@ namespace brk.Core.Domain.List.Entities
             Title = title;
         }
 
+        #region methods
         public static ListModel Create(ListOwnerId ownerId, Title title) => new(ownerId, title);
 
         public void SetOrder(int order)
@@ -48,5 +49,12 @@ namespace brk.Core.Domain.List.Entities
         {
             _tasks.Add(TaskModel.Create(title));
         }
+
+        public void Update(Title title)
+        {
+            Title = title;
+        }
+
+        #endregion
     }
 }
