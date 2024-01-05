@@ -14,6 +14,7 @@ namespace brk.Framework.Base.Extensions
         {
             services.AddHttpContextAccessor();
             services.AddScoped<ICommandDispatcher, CommandDispatcher>();
+            services.AddScoped<IQueryDispatcher, QueryDispatcher>();
             services.AddTransient<IUserInfoService, UserInfoService>();
             var assemblies = GetAssemblies(assemblyName);
 

@@ -1,6 +1,4 @@
-﻿
-using brk.Framework.Base.ValueConversion;
-using brk.Framework.Base.ValueObjects;
+﻿using brk.Framework.Base.ValueConversion;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -8,16 +6,11 @@ namespace brk.Framework.Base.Data
 {
     public abstract class BaseCommandDbContext : DbContext
     {
-        public BaseCommandDbContext(DbContextOptions options):base(options) { }
+        public BaseCommandDbContext(DbContextOptions options) : base(options) { }
 
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {
-            configurationBuilder.Properties<FirstName>().HaveConversion<FirstNameConversion>();
-            configurationBuilder.Properties<LastName>().HaveConversion<LastNameConversion>();
-            configurationBuilder.Properties<Email>().HaveConversion<EmailConversion>();
-            configurationBuilder.Properties<Mobile>().HaveConversion<MobileConversion>();
-            configurationBuilder.Properties<Title>().HaveConversion<TitleConversion>();
-            configurationBuilder.Properties<Description>().HaveConversion<DescriptionConversion>();
+            configurationBuilder.AddValueConversion();
         }
 
         public IEnumerable<string> GetIncludePaths(Type clrEntityType)
