@@ -1,5 +1,6 @@
 ﻿using brk.Framework.Base.Application;
 using brk.Framework.Base.Data;
+using brk.Framework.Base.Query;
 using brk.Framework.Base.Web.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyModel;
@@ -21,7 +22,9 @@ namespace brk.Framework.Base.Extensions
                                                     typeof(ICommandHandler<,>), 
                                                     typeof(IBaseRepository),
                                                     typeof(IBaseRepository<,>),
-                                                    typeof(IUnitOfWork)))
+                                                    typeof(IUnitOfWork),
+                                                    typeof(IQueryHandler<>),
+                                                    typeof(IQueryHandler<,>)))
                 .AsImplementedInterfaces()
                 .WithScopedLifetime());
         }
