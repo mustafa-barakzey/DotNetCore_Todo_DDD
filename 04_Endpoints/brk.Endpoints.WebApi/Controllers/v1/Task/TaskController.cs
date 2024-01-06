@@ -13,5 +13,12 @@ namespace brk.Endpoints.WebApi.Controllers.v1.TaskList
         /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] AddTaskCommand command) =>await Create(command);
+        /// <summary>
+        /// اضافه کردن تسک به لیست
+        /// </summary>
+        /// <param name="command">اطلاعات تسک</param>
+        /// <returns></returns>
+        [HttpPut]
+        public async Task<IActionResult> Put([FromBody] AddTaskCommand command) =>await Create(command);
     }
 }
