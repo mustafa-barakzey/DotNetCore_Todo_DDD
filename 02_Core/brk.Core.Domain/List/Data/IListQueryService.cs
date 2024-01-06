@@ -5,6 +5,7 @@ namespace brk.Core.Domain.List.Data
 {
     public interface IListQueryService
     {
+        Task<ListModel?> GetAsync(long userId, long id);
         Task<List<ListModel>> GetByUserIdAsync(long userId);
     }
 }

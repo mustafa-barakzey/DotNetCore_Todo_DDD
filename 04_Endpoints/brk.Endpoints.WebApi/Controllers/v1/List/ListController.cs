@@ -7,7 +7,6 @@ namespace brk.Endpoints.WebApi.Controllers.v1.List
     [Authorize]
     public class ListController:BaseApiController
     {
-
         #region query
 
         /// <summary>
@@ -16,6 +15,13 @@ namespace brk.Endpoints.WebApi.Controllers.v1.List
         /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Get() => await Query<GetUserList>();
+
+        /// <summary>
+        /// get list detail by id
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> GetById([FromQuery] GetUserListDetailQuery query) => await Query<GetUserListDetailQuery,GetUserListDetail>(query);
 
         #endregion
 
