@@ -88,6 +88,15 @@ namespace brk.Framework.Localization.List {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Successfully Deleted.
+        /// </summary>
+        public static string SuccessfullyDeleted {
+            get {
+                return ResourceManager.GetString("SuccessfullyDeleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Successfully Edited.
         /// </summary>
         public static string SuccessfullyEdited {

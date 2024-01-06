@@ -126,6 +126,9 @@
   <data name="SuccessfullyAdded" xml:space="preserve">
     <value>Successfully Added</value>
   </data>
+  <data name="SuccessfullyDeleted" xml:space="preserve">
+    <value>Successfully Deleted</value>
+  </data>
   <data name="SuccessfullyEdited" xml:space="preserve">
     <value>Successfully Edited</value>
   </data>
