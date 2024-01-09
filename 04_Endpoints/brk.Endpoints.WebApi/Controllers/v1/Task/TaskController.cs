@@ -10,6 +10,13 @@ namespace brk.Endpoints.WebApi.Controllers.v1.TaskList
         #region query
 
         /// <summary>
+        /// get all tasks by list id
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<IActionResult> GetAll([FromQuery] GetAllTasks query) => await Query<GetAllTasks, AllTaskData>(query);
+
+        /// <summary>
         /// get task detail
         /// </summary>
         /// <returns></returns>
