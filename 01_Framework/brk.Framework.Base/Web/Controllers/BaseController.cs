@@ -113,7 +113,7 @@ namespace brk.Framework.Base.Web.Controllers
             return BadRequest(result.Message);
         }
 
-        public async Task<IActionResult> Query<TQuery,TOut>(TQuery query) where TOut : class, IQueryResult where TQuery : class, IQuery
+        public async Task<IActionResult> Query<TQuery,TOut>(TQuery query) where TOut : class, IQueryResult<TQuery> where TQuery : class, IQuery
         {
             var result = await QueryDispatcher.DispatchAsync<TQuery,TOut>(query);
             if (result.StatusCode == OperationResultStatusCode.Success)

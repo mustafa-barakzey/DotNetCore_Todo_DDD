@@ -12,6 +12,11 @@ namespace brk.Framework.Base.Data
         {
             configurationBuilder.AddValueConversion();
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.TrackAll);
+        }
 
         public IEnumerable<string> GetIncludePaths(Type clrEntityType)
         {

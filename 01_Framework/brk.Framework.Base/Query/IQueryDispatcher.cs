@@ -8,7 +8,7 @@ namespace brk.Framework.Base.Query
     public interface IQueryDispatcher
     {
         Task<OperationResult<TOut>> DispatchAsync<TOut>() where TOut : class, IQueryResult;
-        Task<OperationResult<TOut>> DispatchAsync<TQuery, TOut>(TQuery query) where TOut : class, IQueryResult where TQuery : class, IQuery;
+        Task<OperationResult<TOut>> DispatchAsync<TQuery, TOut>(TQuery query) where TOut : class, IQueryResult<TQuery> where TQuery : class, IQuery;
     }
 
     public class QueryDispatcher : IQueryDispatcher
@@ -48,7 +48,7 @@ namespace brk.Framework.Base.Query
             }
         }
 
-        public async Task<OperationResult<TOut>> DispatchAsync<TQuery, TOut>(TQuery query) where TOut : class, IQueryResult where TQuery : class, IQuery
+        public async Task<OperationResult<TOut>> DispatchAsync<TQuery, TOut>(TQuery query) where TOut : class, IQueryResult<TQuery> where TQuery : class, IQuery
         {
             _stopwatch.Start();
             try

@@ -3,4 +3,8 @@
     public interface IQueryResult
     {
     }
+
+    public interface IQueryResult<TQuery> where TQuery : IQuery
+    {
+    }
 }

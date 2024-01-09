@@ -2,12 +2,12 @@
 
 namespace brk.Framework.Base.Query
 {
-    public interface IQueryHandler<TQuery, TOut> where TQuery : class, IQuery where TOut : class, IQueryResult
+    public interface IQueryHandler<TQuery, TOut> where TQuery : class, IQuery where TOut : class, IQueryResult<TQuery>
     {
         Task<OperationResult<TOut>> HandleAsync(TQuery query);
     }
 
-    public abstract class BaseQueryHandler<TQuery, TOut> : IQueryHandler<TQuery, TOut> where TQuery : class, IQuery where TOut : class, IQueryResult
+    public abstract class BaseQueryHandler<TQuery, TOut> : IQueryHandler<TQuery, TOut> where TQuery : class, IQuery where TOut : class, IQueryResult<TQuery>
     {
         public BaseQueryHandler()
         {
