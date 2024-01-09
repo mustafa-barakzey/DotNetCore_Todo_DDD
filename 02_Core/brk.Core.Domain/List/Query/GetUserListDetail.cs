@@ -2,7 +2,7 @@
 
 namespace brk.Core.Domain.List.Query
 {
-    public class GetUserListDetail : IQueryResult
+    public class GetUserListDetail : IQueryResult<GetUserListDetailQuery>
     {
         public long Id { get; set; }
         public string Title { get; set; }

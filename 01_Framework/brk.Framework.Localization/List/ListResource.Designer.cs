@@ -106,6 +106,15 @@ namespace brk.Framework.Localization.List {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Task NotFound.
+        /// </summary>
+        public static string TaskNotFound {
+            get {
+                return ResourceManager.GetString("TaskNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to title is required.
         /// </summary>
         public static string Title_Is_Required {

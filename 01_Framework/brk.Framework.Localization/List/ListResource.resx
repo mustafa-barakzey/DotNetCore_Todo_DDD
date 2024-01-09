@@ -132,6 +132,9 @@
   <data name="SuccessfullyEdited" xml:space="preserve">
     <value>Successfully Edited</value>
   </data>
+  <data name="TaskNotFound" xml:space="preserve">
+    <value>Task NotFound</value>
+  </data>
   <data name="Title_Is_Required" xml:space="preserve">
     <value>title is required</value>
   </data>

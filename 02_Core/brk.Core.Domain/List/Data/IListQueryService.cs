@@ -7,5 +7,6 @@ namespace brk.Core.Domain.List.Data
     {
         Task<ListModel?> GetAsync(long userId, long id);
         Task<List<ListModel>> GetByUserIdAsync(long userId);
+        Task<ListModel?> GetListAsync(long listOwnerId, long listId);
     }
 }
