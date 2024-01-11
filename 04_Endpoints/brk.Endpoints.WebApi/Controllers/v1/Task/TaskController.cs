@@ -14,14 +14,14 @@ namespace brk.Endpoints.WebApi.Controllers.v1.TaskList
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery] GetAllTasks query) => await Query<GetAllTasks, AllTaskData>(query);
+        public async Task<IActionResult> Get([FromQuery] GetAllTasks query) => await Query<GetAllTasks, AllTaskData>(query);
 
         /// <summary>
         /// get task detail
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<IActionResult> Get([FromQuery]GetTaskDetail query) => await Query<GetTaskDetail, TaskDetailData>(query);
+        public async Task<IActionResult> GetDetail([FromQuery]GetTaskDetail query) => await Query<GetTaskDetail, TaskDetailData>(query);
 
         #endregion
 
@@ -33,7 +33,7 @@ namespace brk.Endpoints.WebApi.Controllers.v1.TaskList
         /// <param name="command">task detail</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] AddTaskCommand command) => await Create(command);
+        public async Task<IActionResult> Add([FromBody] AddTaskCommand command) => await Create(command);
 
         /// <summary>
         /// edit task
@@ -41,7 +41,7 @@ namespace brk.Endpoints.WebApi.Controllers.v1.TaskList
         /// <param name="command">task detail</param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] AddTaskCommand command) => await Create(command);
+        public async Task<IActionResult> Edit([FromBody] AddTaskCommand command) => await Create(command);
 
         #endregion
     }

@@ -33,18 +33,18 @@ namespace brk.Endpoints.WebApi.Controllers.v1.List
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] AddListCommand command) => await Create(command);
+        public async Task<IActionResult> Add([FromBody] AddListCommand command) => await Create(command);
 
         /// <summary>
-        /// add new list
+        /// edit list
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] EditListCommand command) => await Edit(command);
+        public async Task<IActionResult> Edit([FromBody] EditListCommand command) => await Edit(command);
 
         /// <summary>
-        /// add new list
+        /// delete list
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
