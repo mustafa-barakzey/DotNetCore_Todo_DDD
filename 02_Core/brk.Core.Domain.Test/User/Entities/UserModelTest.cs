@@ -7,6 +7,12 @@ namespace brk.Core.Domain.Test.User.Entities
 {
     public class UserModelTest
     {
+        private readonly UserBuilder _userBuilder;
+        public UserModelTest()
+        {
+            _userBuilder = new UserBuilder();
+        }
+
         [Fact]
         public void factory_should_create_new_user()
         {
@@ -22,6 +28,15 @@ namespace brk.Core.Domain.Test.User.Entities
             userModel.LastName.Should().Be(lastName);
             userModel.Email.Should().Be(email);
             userModel.Password.Should().Be(password);
+        }
+
+        [Fact]
+        public void set_password_should_update_password()
+        {
+            var userModel = _userBuilder.Build();
+            var newPassword=Password.FromString("newPassword");
+            userModel.SetPassword(newPassword);
+            userModel.Password.Should().Be(newPassword);
         }
     }
 }
