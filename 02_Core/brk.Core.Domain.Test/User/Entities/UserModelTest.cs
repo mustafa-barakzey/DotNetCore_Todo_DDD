@@ -38,5 +38,14 @@ namespace brk.Core.Domain.Test.User.Entities
             userModel.SetPassword(newPassword);
             userModel.Password.Should().Be(newPassword);
         }
+
+        [Fact]
+        public void set_mobile_should_update_mobile()
+        {
+            var userModel = _userBuilder.Build();
+            var mobile = Mobile.FromString("+989103834331");
+            userModel.SetMobile(mobile);
+            userModel.Mobile.Should().Be(mobile);
+        }
     }
 }
