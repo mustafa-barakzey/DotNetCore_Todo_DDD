@@ -40,11 +40,6 @@ namespace brk.Core.Domain.List.Entities
             Order = order;
         }
 
-        public void AddTask(TaskModel task)
-        {
-            _tasks.Add(task);
-        }
-
         public void AddTask(Title title)
         {
             _tasks.Add(TaskModel.Create(title));

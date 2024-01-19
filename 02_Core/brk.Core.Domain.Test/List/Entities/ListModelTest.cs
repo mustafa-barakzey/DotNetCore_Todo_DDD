@@ -45,5 +45,17 @@ namespace brk.Core.Domain.Test.List.Entities
             model.Update(title);
             model.Title.Should().Be(title);
         }
+
+        [Fact]
+        public void add_task_should_add_new_task_to_list()
+        {
+            var list = _listBuilder.Build();
+
+            var taskTitle = Title.FromString("task title");
+
+            list.AddTask(taskTitle);
+
+            list.Tasks.Should().Contain(m=>m.Title == taskTitle);
+        }
     }
 }
