@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "brk.Data.SQL", "03_Infra\br
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_Endpoints", "04_Endpoints", "{8C1464B9-4AC9-4105-B543-776693CF468C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "brk.Endpoints.WebApi", "04_Endpoints\brk.Endpoints.WebApi\brk.Endpoints.WebApi.csproj", "{50408131-5AAF-4F20-A926-EAA203C8CD59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "brk.Endpoints.WebApi", "04_Endpoints\brk.Endpoints.WebApi\brk.Endpoints.WebApi.csproj", "{50408131-5AAF-4F20-A926-EAA203C8CD59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "brk.Core.Domain.Test", "02_Core\brk.Core.Domain.Test\brk.Core.Domain.Test.csproj", "{2AFC8F09-C2B2-4FD1-BF73-205BF14ECBCE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{50408131-5AAF-4F20-A926-EAA203C8CD59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50408131-5AAF-4F20-A926-EAA203C8CD59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50408131-5AAF-4F20-A926-EAA203C8CD59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AFC8F09-C2B2-4FD1-BF73-205BF14ECBCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AFC8F09-C2B2-4FD1-BF73-205BF14ECBCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AFC8F09-C2B2-4FD1-BF73-205BF14ECBCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AFC8F09-C2B2-4FD1-BF73-205BF14ECBCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{B4E96048-1EFA-443C-96C5-8A9EB1614380} = {6BCE8110-32B4-47A1-9DBA-013C24DC37F4}
 		{6A7FC3D2-8F6C-4CD2-91B1-BD75BE26416F} = {5BD32F40-76C1-4582-BED9-9FBF112F93B1}
 		{50408131-5AAF-4F20-A926-EAA203C8CD59} = {8C1464B9-4AC9-4105-B543-776693CF468C}
+		{2AFC8F09-C2B2-4FD1-BF73-205BF14ECBCE} = {FFE57863-4EDD-4D32-9693-D09C932A2E4F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B500DC1C-11D7-49B9-8D3E-0F7D7C7429B8}
