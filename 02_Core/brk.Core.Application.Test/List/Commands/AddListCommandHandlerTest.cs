@@ -36,5 +36,20 @@ namespace brk.Core.Application.Test.List.Commands
             await _listRepository.ReceivedWithAnyArgs().AddAsync(Arg.Any<ListModel>());
             //await _listRepository.Received().CommitAsync();
         }
+
+        [Fact]
+        public async Task handler_should_return_error_when_list_exist()
+        {
+            var command = new AddListCommand
+            {
+                Title = "list title"
+            };
+
+            var ownerId = ListOwnerId.FromLong(100);
+            var title = Title.FromString(command.Title);
+            _listRepository.IsExistAsync(ownerId, title).Returns(false);
+
+            await _handler.ExecuteAsync(command);
+        }
     }
 }
