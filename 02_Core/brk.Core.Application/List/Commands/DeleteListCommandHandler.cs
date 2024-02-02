@@ -5,7 +5,7 @@ using brk.Framework.Localization.List;
 
 namespace brk.Core.Application.List.Commands
 {
-    internal class DeleteListCommandHandler : BaseCommandHandler<DeleteListCommand>
+    public class DeleteListCommandHandler : BaseCommandHandler<DeleteListCommand>
     {
         private readonly IListRepository _listRepository;
         private readonly IUserInfoService _userInfoService;
