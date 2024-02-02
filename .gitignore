@@ -362,3 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /03_Infra/brk.Data.SQL/Migrations
+*.ncrunchproject
+*.ncrunchsolution
